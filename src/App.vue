@@ -1,19 +1,51 @@
 <template>
   <div id="app">
-    <button type="button" name="aNuevo">Articulo Nuevo</button>
-    <img src="./assets/logo.png">
-    <Home/>
+    <button type="button" name="artNuevo" v-if="!artNuevo" v-on:click="artNuevoFN()">Articulo Nuevo</button>
+
+    <div class="row">
+      <div v-if="artNuevo" class="col-lg-10">
+        <ANuevo />
+      </div>
+      <div v-else class="col-lg-10">
+        <Home />
+      </div>
+      <!--remeber to switch the this out for the articulo component-->
+      <div class="col-lg-2">
+        <Articulos />
+      </div>
+    </div>
+
+
   </div>
 </template>
 
 <script>
 import Home from './components/home.component.vue'
+import ANuevo from './components/aNuevo.component.vue'
+import Articulos from './components/articulos.component.vue'
 
 export default {
   name: 'app',
   components: {
-    Home
+    Home,
+    ANuevo,
+    Articulos
+  }, data(){
+    return {
+      artNuevo: false
+    }
+  },
+  props: {
+    articulo: {
+      type: Array
+    }
+  },
+  methods: {
+    artNuevoFN: function(){
+      return this.artNuevo = !this.artNuevo
+    }
   }
+
 }
 </script>
 

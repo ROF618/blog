@@ -18,9 +18,7 @@ a {
     color: #42b983;
 }
 
-textarea {
-  margin-left: 150px;
-}
+
 
 #titulo {
   display: block;
@@ -31,30 +29,30 @@ textarea {
 
 <template>
 
-<div class="hello">
+<div>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-12">
-        Titulo<input type="text" name="titulo" value="" id="titulo">
+      <div v-if="posted" class="col-lg-12">
+        <h3>{{title}}</h3>
+
+      </div>
+      <div v-else class="col-lg-12">
+
+      <textarea v-model="title" name="name" rows="1" cols="15"></textarea>
       </div>
     </div>
     <div class="row">
       <div class="col-md-11">
       <form class="" action="index.html" method="post">
+        <div v-if="posted" class="col-md-10">{{content}}</div>
+        <div v-else class="col-md-11"><textarea name="Text1" rows="10" cols="70" id="contenido" v-model="content"></textarea></div>
 
-        <textarea name="Text1" rows="10" cols="70"></textarea>
       </form>
       </div>
-      <div class="col-md-1">
-        <ul>
-          <li><a href="#">link1</a></li>
-          <li><a href="#">link2</a></li>
-          <li><a href="#">link3</a></li>
-        </ul>
-      </div>
+
     </div>
   </div>
-  <button v-on:click="createArticulo('1', 'titulo', 'LoremIpsul')" type="button" name="button">Post</button>
+  <button v-if="posted" v-on:click="editFn()" type="button" name="button">editar</button>
 
 
 
@@ -63,17 +61,33 @@ textarea {
 </template>
 
 <script>
-
 export default {
     name: 'Home',
-    props: {
-        msg: String
+    data() {
+        return{
+          posted: true,
+          id: 0,
+          title: 'Lorem Ipsum',
+          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+          titulo: ''
+
+        }
     },
     methods: {
-      createArticulo: function (index,titulo, contenido){
-        return alert(index, titulo, contenido)
+      /*
+      articulo: function(index, titulo, contenido){
+        this.index = index
+        this.titulo = titulo
+        this.contenido = contenido
+      },*/
+      editFn: function(){
+        return this.posted = !this.posted
       }
     }
+
 }
 
+/*new vue ({
+  el: '#titulo'
+})*/
 </script>

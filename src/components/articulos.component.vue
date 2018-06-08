@@ -1,20 +1,4 @@
-<script>
-export default {
-  name: 'Articulos',
-  el: '#v-for-test',
-  //remember to add the Key: to v-for; look up vue documentation saved
-  data() {
-    test: [{
-      titulo: "lorem",
-      contenido: "Ipsum depsum crestum"
-    },
-    {
-      titulo: "Iorem",
-      contenido: "frasum Marasum tacsum"
-    }]
-  }
-}
-</script>
+
 
 <style lang="css">
   ul {
@@ -24,8 +8,32 @@ export default {
 
 <template>
 <div class="container-fluid">
-  <ul id="v-for-test">
-    <li v-for="value in test">{{value}}</li>
+  <ul id="#v-for-object">
+    <li v-for="value in test" v-bind:key="test.id">{{ value.title }}</li>
+
   </ul>
+
+
 </div>
+
 </template>
+
+
+<script>
+export default {
+  name: 'Articulos',
+  data(){
+    return {
+      //start to add the test as links in the html
+      el: '#v-for-object',
+      //this array of objects will be the container for the articles of the site, remember to add a content property
+      test: [
+        { id: 1, title: 'lorem ipsum'},
+        { id: 2, title: 'dolor sit amet'},
+        { id: 3, title: 'consectetur adipiscing'}
+      ]
+    }
+  }
+
+}
+</script>

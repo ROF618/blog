@@ -55,6 +55,7 @@ export default {
         let tituloId = document.getElementById('titulo').value
         let contenidoId = document.getElementById('contenido').value
         return console.log(tituloId)
+        //push(tituloId, contenidoId)
       }
     }
 

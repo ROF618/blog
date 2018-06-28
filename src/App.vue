@@ -22,7 +22,7 @@
       </div>
       <!--remeber to switch the this out for the articulo component-->
       <div class="col-lg-3">
-        <Articulos />
+        <Articulos v-bind:test="test" />
       </div>
     </div>
 
@@ -43,7 +43,12 @@ export default {
     Articulos
   }, data(){
     return {
-      artNuevo: false
+      artNuevo: false,
+      test: [
+        { id: 1, title: 'lorem ipsum', content: ''},
+        { id: 2, title: 'dolor sit amet', content: ''},
+        { id: 3, title: 'consectetur adipiscing', content: ''}
+      ]
     }
   },
   props: {

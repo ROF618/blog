@@ -12,7 +12,7 @@
 
 <template>
 <div class="container-fluid">
-  <ul id="#v-for-object">
+  <ul >
     <li v-for="value in test" v-bind:key="test.id"><a href="#">{{ value.title }}</a></li>
 
   </ul>

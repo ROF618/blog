@@ -42,10 +42,8 @@ a {
 <script>
 export default {
     name: 'ANuevo',
-    props: {
-        id: Number
-    },
-    methods: {
+    props: ['test'],
+    computed: {
       /*articulo: function(index, titulo, contenido){
         this.index = index
         this.titulo = titulo
@@ -54,7 +52,8 @@ export default {
       createArticulo: function(){
         let tituloId = document.getElementById('titulo').value
         let contenidoId = document.getElementById('contenido').value
-        return console.log(tituloId)
+        //find a way to add one to the ID property on the test object
+        return this.test.push(  { id: +1, title: tituloId, content: contenidoId })
         //push(tituloId, contenidoId)
       }
     }

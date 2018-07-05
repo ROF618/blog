@@ -14,8 +14,8 @@
     <button type="button" name="artNuevo" v-if="!artNuevo" v-on:click="artNuevoFN()">Articulo Nuevo</button>
 
     <div class="row">
-      <div v-if="artNuevo" class="col-lg-10">
-        <ANuevo />
+      <div v-if="artNuevo" class="col-lg-9">
+        <ANuevo v-bind:test="test" />
       </div>
       <div v-else class="col-lg-9">
         <Home v-bind:test="test" />

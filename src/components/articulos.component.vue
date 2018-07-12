@@ -13,7 +13,8 @@
 <template>
 <div class="container-fluid">
   <ul >
-    <li v-for="value in test" v-bind:key="test.id"><a href="#">{{ value.title }}</a></li>
+    <!--add on click event to update the position of the article array, do this on the home component -->
+    <li v-for="value in articleList" v-bind:key="articleList.id"><a href="#" v-on:click="chArticle(this)">{{ value.title }}</a></li>
 
   </ul>
 
@@ -26,26 +27,12 @@
 <script>
 export default {
   name: 'Articulos',
-  props: ['test'],
+  props: ['articleList'],
   data(){
     return {
-      //start to add the test as links in the html
+      //start to add the articleList as links in the html
       el: '#v-for-object',
-      //this array of objects will be the container for the articles of the site, remember to add a content property
-      /*
-      test: [
-        { id: 1, title: 'lorem ipsum', content: ''},
-        { id: 2, title: 'dolor sit amet', content: ''},
-        { id: 3, title: 'consectetur adipiscing', content: ''}
-      ]
-      */
-    }
-  },
-  methods: {
-    emitNewArticle() {
-      this.test.create(newAccount)
-      // Send the event on a channel (i-got-clicked) with a payload (the click count.)
-      ArticleBus.$emit('newArticle', this.test);
+
     }
   }
 

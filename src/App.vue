@@ -15,14 +15,14 @@
 
     <div class="row">
       <div v-if="artNuevo" class="col-lg-9">
-        <ANuevo v-bind:test="test" />
+        <ANuevo v-bind:articleList="articleList, artNuevo" />
       </div>
       <div v-else class="col-lg-9">
-        <Home v-bind:test="test" />
+        <Home v-bind:articleList="articleList, prueba" />
       </div>
       <!--remeber to switch the this out for the articulo component-->
       <div class="col-lg-3">
-        <Articulos v-bind:test="test" />
+        <Articulos v-bind:articleList="articleList" />
       </div>
     </div>
 
@@ -44,18 +44,15 @@ export default {
   }, data(){
     return {
       artNuevo: false,
-      test: [
+      articleList: [
         { id: 1, title: 'lorem ipsum', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'},
         { id: 2, title: 'dolor sit amet', content: ''},
         { id: 3, title: 'consectetur adipiscing', content: ''}
-      ]
+      ],
+      prueba: 0
     }
   },
-  props: {
-    articulo: {
-      type: Array
-    }
-  },
+  
   methods: {
     artNuevoFN: function(){
       return this.artNuevo = !this.artNuevo

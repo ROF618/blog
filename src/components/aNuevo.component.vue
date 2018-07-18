@@ -45,7 +45,7 @@ a {
 export default {
     name: 'ANuevo',
     props: ['articleList', 'artNuevo'],
-    computed: {
+    methods: {
 
       createArticulo: function(){
         let tituloId = document.getElementById('titulo').value

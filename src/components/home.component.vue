@@ -33,7 +33,7 @@ a {
   <div class="container-fluid">
     <div class="row">
       <div v-if="posted" class="col-lg-12">
-        <h3>{{ articleList[prueba].title }}</h3>
+        <h3>{{ articleList[0].title }}</h3>
 
 
       </div>
@@ -45,7 +45,7 @@ a {
     <div class="row">
       <div class="col-md-11">
       <form class="" action="index.html" method="post">
-        <div v-if="posted" class="col-md-10">{{ articleList[prueba].content}}</div>
+        <div v-if="posted" class="col-md-10">{{ articleList[0].content}}</div>
         <div v-else class="col-md-11"><textarea name="Text1" rows="10" cols="70" id="contenido" v-model="content"></textarea></div>
 
       </form>
@@ -87,7 +87,7 @@ export default {
       }
     },
 
-    props: ['articleList', 'prueba']
+    props: ['articleList']
 
 }
 

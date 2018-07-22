@@ -36,6 +36,7 @@ export default {
     }
   },
   methods:{
+    // make the createArituclo method and the articleList object have their id = indexof() current position of the array
     chArticle: function(info){
       console.log(info)
     }

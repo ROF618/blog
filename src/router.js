@@ -3,12 +3,13 @@ import VueRouter from 'vue-router'
 import Home from './components/home.component.vue'
 import ANuevo from './components/aNuevo.component.vue'
 import Articulos from './components/articulos.component.vue'
+import headerApp from './components/headerApp.component.vue'
 
-Vue.use(VueRouter)
 
 
-export default new VueRouter({
-  routes: [
+
+export default[
+
     {
       path: '/home',
       name: 'Home',
@@ -16,13 +17,18 @@ export default new VueRouter({
     },
     {
       path: '/aNuevo',
-      name: 'ANuevo',
+      name: 'aNuevo',
       component: ANuevo
     },
     {
+      path: '/headerApp',
+
+      component: headerApp
+    },
+    {
       path: '/articulos',
-      name: 'Articulos',
+
       component: Articulos
     }
-  ]
-})
+
+]

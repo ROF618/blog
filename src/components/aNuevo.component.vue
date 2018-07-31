@@ -30,13 +30,22 @@ a {
 
 
       <div class="row">
-        <textarea rows="1" cols="15" id="titulo" class="cStyle"></textarea>
+        <textarea rows="1" cols="15" id="titulo" class="cStyle" v-model="titlePrev"></textarea>
       </div>
       <div class="row">
-        <textarea rows="10" cols="70" id="contenido" class="cStyle"></textarea>
+        <textarea rows="10" cols="70" id="contenido" class="cStyle" v-model="contentPrev"></textarea>
       </div>
-      <button type="button" name="button" v-on:click="createArticulo()">Post</button>
+      <div class="row">
+        <button type="button" name="button" v-on:click="createArticulo()" class="cStyle">Post</button>
+      </div>
     </form>
+
+    <div class="row">
+      <span class="cStyle">{{titlePrev}}</span>
+    </div>
+    <div class="row">
+      <span class="cStyle">{{contentPrev}}</span>
+    </div>
   </div>
 
 </template>
@@ -45,6 +54,12 @@ a {
 export default {
     name: 'ANuevo',
     props: ['articleList', 'artNuevo'],
+    data(){
+      return{
+        titlePrev: '',
+        contentPrev: ''
+      }
+    },
     methods: {
 
       createArticulo: function(){

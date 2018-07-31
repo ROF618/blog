@@ -16,7 +16,7 @@
         <headerApp />
       </div>
     </div>
-    <button type="button" name="artNuevo" v-if="!artNuevo" v-on:click="artNuevoFN()">Articulo Nuevo</button>
+    <!--<button type="button" name="artNuevo" v-if="!artNuevo" v-on:click="artNuevoFN()">Articulo Nuevo</button>-->
 
     <div class="row">
       <div class="col-lg-9">

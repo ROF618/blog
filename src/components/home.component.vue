@@ -81,7 +81,7 @@ export default {
         this.contenido = contenido
       },*/
 
-
+      //make this div change to a text area once the button is pressed
       editFn: function(){
         return this.posted = !this.posted
       }

@@ -4,6 +4,7 @@ import Home from './components/home.component.vue'
 import ANuevo from './components/aNuevo.component.vue'
 import Articulos from './components/articulos.component.vue'
 import headerApp from './components/headerApp.component.vue'
+import singleArt from './components/singleArt.component.vue'
 
 
 
@@ -24,6 +25,11 @@ export default[
       path: '/headerApp',
 
       component: headerApp
+    },
+    {
+      path: '/singleArt ',
+      name: 'singleArt',
+      component: singleArt
     },
     {
       path: '/articulos',

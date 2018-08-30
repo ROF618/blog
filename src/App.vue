@@ -47,6 +47,7 @@ import Home from './components/home.component.vue'
 import ANuevo from './components/aNuevo.component.vue'
 import Articulos from './components/articulos.component.vue'
 import headerApp from './components/headerApp.component.vue'
+import singleArt from './components/singleArt.component.vue'
 
 export default {
   name: 'app',
@@ -54,18 +55,14 @@ export default {
     Home,
     ANuevo,
     Articulos,
+    singleArt,
     headerApp
   }, data(){
     return {
       artNuevo: false,
-      //add articleList as a mixin so you can import to each compnent instead of binding through props
+      //the singleArt component does not register for some reason; find out why
       prueba: 0,
-      articleList: [
-        { id: 1, title: 'lorem ipsum', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'},
-        { id: 2, title: 'dolor sit amet', content: ''},
-        { id: 3, title: 'consectetur adipiscing', content: ''}
-      ],
-
+      articleList: []
     }
   },
 
@@ -73,7 +70,21 @@ export default {
     artNuevoFN: function(){
       return this.artNuevo = !this.artNuevo
     }
+  },
+  created(){
+    this.$http.get('https://workylabtecnico.firebaseio.com/posts.json').then(function(data){
+      return data.json()
+    }).then(function(data){
+      let blogsArray = []
+      for(let key in data){
+        data[key].id = key
+        blogsArray.push(data[key])
+      }
+      this.articleList = blogsArray
+
+    })
   }
+
 
 }
 </script>

@@ -32,21 +32,21 @@ a {
 <div>
   <div class="container-fluid">
     <div class="row">
-      <div v-if="posted" class="col-lg-12">
-        <h3>{{ articleList[0].title }}</h3>
-
+      <div v-if="posted" class="col-lg-12" v-for="blog in articleList">
+        <h3>{{ blog.title }}</h3>
+        {{ blog.content}}
 
       </div>
       <div v-else class="col-lg-12">
 
-      <textarea v-model="title" name="name" rows="1" cols="15"></textarea>
+      <textarea v-model="title" name="name" rows="1" cols="15"></textarea><br>
+      <textarea name="Text1" rows="10" cols="70" id="contenido" v-model="content"></textarea>
       </div>
     </div>
     <div class="row">
       <div class="col-md-11">
       <form class="" action="index.html" method="post">
-        <div v-if="posted" class="col-md-10">{{ articleList[0].content}}</div>
-        <div v-else class="col-md-11"><textarea name="Text1" rows="10" cols="70" id="contenido" v-model="content"></textarea></div>
+
 
       </form>
 
@@ -74,18 +74,12 @@ export default {
         }
     },
     methods: {
-      /*
-      articulo: function(index, titulo, contenido){
-        this.index = index
-        this.titulo = titulo
-        this.contenido = contenido
-      },*/
 
-      //make this div change to a text area once the button is pressed
       editFn: function(){
         return this.posted = !this.posted
       }
     },
+
 
     props: ['articleList']
 

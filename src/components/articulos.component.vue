@@ -14,7 +14,7 @@
 <div class="container-fluid">
   <ul >
     <!--add on click event to update the position of the article array, do this on the home component -->
-    <li v-for="value in articleList" v-bind:key="articleList.id"><a href="#" v-on:click="chArticle(this.value)">{{ value.title }}</a></li>
+    <li v-for="value in articleList" v-bind:key="value.id"><router-link :to="'/home' ">{{ value.title }}</router-link></li>
 
   </ul>
 
@@ -32,13 +32,7 @@ export default {
     return {
       //start to add the articleList as links in the html
       el: '#v-for-object',
-
-    }
-  },
-  methods:{
-    // make the createArituclo method and the articleList object have their id = indexof() current position of the array
-    chArticle: function(info){
-      console.log(info)
+    //  articulos: this.$http.get('https://workylabtecnico.firebaseio.com/posts.json').then((data)=> console.log(data.data))
     }
   }
 

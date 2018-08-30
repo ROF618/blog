@@ -30,21 +30,21 @@ a {
 
 
       <div class="row">
-        <textarea rows="1" cols="15" id="titulo" class="cStyle" v-model="titlePrev"></textarea>
+        <textarea rows="1" cols="15" id="titulo" class="cStyle" v-model="blog.title"></textarea>
       </div>
       <div class="row">
-        <textarea rows="10" cols="70" id="contenido" class="cStyle" v-model="contentPrev"></textarea>
+        <textarea rows="10" cols="70" id="contenido" class="cStyle" v-model="blog.content"></textarea>
       </div>
       <div class="row">
-        <button type="button" name="button" v-on:click="createArticulo()" class="cStyle">Post</button>
+        <button type="button" name="button" v-on:click="post()" class="cStyle">Post</button>
       </div>
     </form>
 
     <div class="row">
-      <span class="cStyle">{{titlePrev}}</span>
+      <span class="cStyle">{{blog.title}}</span>
     </div>
     <div class="row">
-      <span class="cStyle">{{contentPrev}}</span>
+      <span class="cStyle">{{blog.content}}</span>
     </div>
   </div>
 
@@ -56,12 +56,14 @@ export default {
     props: ['articleList', 'artNuevo'],
     data(){
       return{
-        titlePrev: '',
-        contentPrev: ''
+        blog: {
+          title: "",
+          content: "",
+        }
       }
     },
     methods: {
-
+      /*
       createArticulo: function(){
         let tituloId = document.getElementById('titulo').value
         let contenidoId = document.getElementById('contenido').value
@@ -69,7 +71,19 @@ export default {
         let pNArticulo = this.articleList.push(  { title: tituloId, content: contenidoId })
         let newArtForm = document.getElementById('newAForm').reset()
         return pNArticulo
+
         //push(tituloId, contenidoId)
+      },*/
+      post: function(){
+
+        this.$http.post('https://workylabtecnico.firebaseio.com/posts.json', this.blog).then(function(data){
+          console.log(data);
+          this.blog.title = ""
+          this.blog.content = ""
+          document.getElementById('newAForm').reset();
+        })
+
+
       }
     }
 

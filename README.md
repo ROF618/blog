@@ -1,21 +1,3 @@
-# workylabtecnico
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
+This is personal project I am building to accomplish two things:
+  1. To teach my self the Vue framework
+  2. To someday take this page live and provide people of the 'blank' community with an outlet to address each other

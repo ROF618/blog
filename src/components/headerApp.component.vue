@@ -1,7 +1,7 @@
 <template lang="html">
   <nav>
     <ul id="navUL">
-      <li><router-link :class="{ 'router-link-active': isProjectTypeRoute }" :to="{ name: 'Home', params: {} }">Blogs</router-link></li>
+      <li><router-link :class="{ 'router-link-active': isProjectTypeRoute }" :to="{ name: 'Home', params: {} }">Blogs Preview</router-link></li>
       <li><router-link :to="{ name: 'aNuevo', params: {} }"> Add a New Blog</router-link></li>
 
     </ul>

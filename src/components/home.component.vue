@@ -32,7 +32,7 @@ a {
 <div>
   <div class="container-fluid">
     <div class="row">
-      <div v-if="posted" class="col-lg-12" v-for="blog in articleList">
+      <div v-if="posted" class="col-lg-12" v-for="blog in articleList" v-bind:key="blog.id">
         <h3>{{ blog.title }}</h3>
         {{ blog.content}}
 

@@ -20,7 +20,7 @@
 
     <div class="row">
       <div class="col-lg-9">
-        <router-view v-bind:articleList="articleList, prueba"></router-view>
+        <router-view v-bind:articleList="articleList, prueba" :key="$route.path"></router-view>
       </div>
 
 

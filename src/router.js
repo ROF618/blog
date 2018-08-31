@@ -1,5 +1,3 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
 import Home from './components/home.component.vue'
 import ANuevo from './components/aNuevo.component.vue'
 import Articulos from './components/articulos.component.vue'
@@ -27,7 +25,7 @@ export default[
       component: headerApp
     },
     {
-      path: '/singleArt ',
+      path: '/singleArt/:id',
       name: 'singleArt',
       component: singleArt
     },

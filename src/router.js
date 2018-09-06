@@ -10,7 +10,7 @@ import singleArt from './components/singleArt.component.vue'
 export default[
 
     {
-      path: '/home',
+      path: '/',
       name: 'Home',
       component: Home
     },

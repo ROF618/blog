@@ -33,15 +33,11 @@ a {
   <div class="container-fluid">
     <div class="row">
       <div v-if="posted" class="col-lg-12" v-for="blog in articleList" v-bind:key="blog.id">
-        <h3>{{ blog.title }}</h3>
+        <router-link :to="'/singleArt/' + blog.id"><h3>{{ blog.title }}</h3></router-link>
         {{ blog.content}}
 
       </div>
-      <div v-else class="col-lg-12">
 
-      <textarea v-model="title" name="name" rows="1" cols="15"></textarea><br>
-      <textarea name="Text1" rows="10" cols="70" id="contenido" v-model="content"></textarea>
-      </div>
     </div>
     <div class="row">
       <div class="col-md-11">
@@ -54,7 +50,7 @@ a {
 
     </div>
   </div>
-  <button v-if="posted" v-on:click="editFn()" type="button" name="button">editar</button>
+
 
 
 
@@ -69,16 +65,11 @@ export default {
     name: 'Home',
     data() {
         return{
-          posted: true
+          
 
         }
     },
-    methods: {
 
-      editFn: function(){
-        return this.posted = !this.posted
-      }
-    },
 
 
     props: ['articleList']

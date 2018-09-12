@@ -8,11 +8,6 @@
   </nav>
 </template>
 
-<script>
-export default {
-}
-</script>
-
 <style lang="css">
 #navUL{
   background-color: #444;
@@ -36,3 +31,8 @@ nav{
   margin-bottom: 40px;
 }
 </style>
+
+<script>
+export default {
+}
+</script>

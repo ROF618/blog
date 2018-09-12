@@ -1,3 +1,29 @@
+<template>
+  <div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12" v-for="blog in articleList" v-bind:key="blog.id">
+          <router-link :to="'/singleArt/' + blog.id"><h3>{{ blog.title }}</h3></router-link>
+          {{ blog.content}}
+
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-11">
+        <form class="" action="index.html" method="post">
+
+
+        </form>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</template>
+
 <style scoped>
 
 h3 {
@@ -27,37 +53,6 @@ a {
 
 </style>
 
-<template>
-
-<div>
-  <div class="container-fluid">
-    <div class="row">
-      <div v-if="posted" class="col-lg-12" v-for="blog in articleList" v-bind:key="blog.id">
-        <router-link :to="'/singleArt/' + blog.id"><h3>{{ blog.title }}</h3></router-link>
-        {{ blog.content}}
-
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-md-11">
-      <form class="" action="index.html" method="post">
-
-
-      </form>
-
-      </div>
-
-    </div>
-  </div>
-
-
-
-
-</div>
-
-</template>
-
 <script>
 export default {
 
@@ -65,7 +60,7 @@ export default {
     name: 'Home',
     data() {
         return{
-          
+
 
         }
     },

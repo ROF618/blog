@@ -1,29 +1,3 @@
-<style scoped>
-
-h3 {
-    margin: 40px 0 0;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    display: block;
-    margin: 0 10px;
-}
-
-a {
-    color: #42b983;
-}
-
-.cStyle {
-  margin: 0 auto;
-}
-
-</style>
-
 <template>
   <div class="container-fluid">
     <form id="newAForm">
@@ -50,6 +24,32 @@ a {
 
 </template>
 
+<style scoped>
+
+h3 {
+    margin: 40px 0 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: block;
+    margin: 0 10px;
+}
+
+a {
+    color: #42b983;
+}
+
+.cStyle {
+  margin: 0 auto;
+}
+
+</style>
+
 <script>
 export default {
     name: 'ANuevo',
@@ -63,17 +63,6 @@ export default {
       }
     },
     methods: {
-      /*
-      createArticulo: function(){
-        let tituloId = document.getElementById('titulo').value
-        let contenidoId = document.getElementById('contenido').value
-        //find a way to add one to the ID property on the articleList object
-        let pNArticulo = this.articleList.push(  { title: tituloId, content: contenidoId })
-        let newArtForm = document.getElementById('newAForm').reset()
-        return pNArticulo
-
-        //push(tituloId, contenidoId)
-      },*/
       post: function(){
 
         this.$http.post('https://workylabtecnico.firebaseio.com/posts.json', this.blog).then(function(data){
@@ -89,7 +78,5 @@ export default {
 
 }
 
-/*new vue ({
-  el: '#titulo'
-})*/
+
 </script>

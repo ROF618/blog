@@ -1,15 +1,3 @@
-
-
-<style lang="css">
-  ul {
-    background-color: #081c3d;
-    list-style: none;
-  }
-  li{
-    text-align: left;
-  }
-</style>
-
 <template>
 <div class="container-fluid">
   <ul >
@@ -23,6 +11,15 @@
 
 </template>
 
+<style lang="css">
+  ul {
+    background-color: #081c3d;
+    list-style: none;
+  }
+  li{
+    text-align: left;
+  }
+</style>
 
 <script>
 export default {

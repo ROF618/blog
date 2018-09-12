@@ -6,10 +6,15 @@
       <button type="button" v-on:click="editFn()">Edit</button>
     </div>
     <div v-else>
-      <h1>Test</h1>
+      <textarea class="editBox">{{blog.title}}</textarea>
+      <textarea class="editBox">{{blog.content}}</textarea>
+      <button type="button" v-on:click="editFn()">Edit</button>
     </div>
   </div>
 </template>
+
+<style lang="css">
+</style>
 
 <script>
 export default {
@@ -36,6 +41,3 @@ export default {
   props: ['articleList']
 }
 </script>
-
-<style lang="css">
-</style>

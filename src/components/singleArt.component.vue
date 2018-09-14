@@ -5,16 +5,18 @@
       <article>{{blog.content}}</article>
       <button type="button" v-on:click="editFn()">Edit</button>
     </div>
-    <div v-else>
-      <div class="row">
-        <textarea rows="1" cols="15" class="editBox" v-model="blog.title"></textarea>
-      </div>
-      <div class="row">
-        <textarea rows="10" cols="70" class="editBox" v-model="blog.content"></textarea>
+
+      <div v-else>
+        <div class="row">
+          <textarea rows="1" cols="15" class="editBox" v-model="blog.title" id="title"></textarea>
+        </div>
+        <div class="row">
+          <textarea rows="10" cols="70" class="editBox" v-model="blog.content" id="content"></textarea>
+        </div>
+
+        <button type="button" v-on:click="updateFn()">Update</button>
       </div>
 
-      <button type="button" v-on:click="updateFn()">Update</button>
-    </div>
   </div>
 </template>
 
@@ -40,9 +42,10 @@ export default {
       },
       updateFn: function(){
         firebase.database().ref('posts/' + this.id).set({
-          title: "",
-          content: ""
+          title: document.getElementById('title').value,
+          content: document.getElementById('content').value
         })
+        return this.posted = !this.posted
       }
   },
   created(){

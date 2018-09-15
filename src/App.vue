@@ -9,7 +9,7 @@
 
     <div class="row">
       <div class="col-lg-9">
-        <router-view v-bind:articleList="articleList, prueba" :key="$route.path"></router-view>
+        <router-view v-bind:articleList="articleList, prueba" :key="$route.path" ref="router"></router-view>
       </div>
       <div class="col-lg-3">
         <Articulos v-bind:articleList="articleList" />

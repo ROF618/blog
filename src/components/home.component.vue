@@ -55,20 +55,12 @@ a {
 
 <script>
 export default {
-
-
     name: 'Home',
     data() {
         return{
-
-
         }
     },
-
-
-
     props: ['articleList']
-
 }
 
 /*new vue ({

@@ -44,6 +44,12 @@ export default {
         firebase.database().ref('posts/' + this.id).set({
           title: document.getElementById('title').value,
           content: document.getElementById('content').value
+        }, function(error){
+          if(error){
+            console.log('the write failed')
+          }else{
+            console.log('the write succeeded')
+          }
         })
         return this.posted = !this.posted
       }

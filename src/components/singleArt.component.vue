@@ -4,6 +4,14 @@
       <h3>{{blog.title}}</h3>
       <article>{{blog.content}}</article>
       <button type="button" v-on:click="editFn()">Edit</button>
+      <div class="alert alert-success alert-dismissible invisible" id="successMes">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>Success!</strong> Your post has been updated.
+      </div>
+      <div class="alert alert-danger alert-dismissible invisible" id="failedMes">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>OOPS!</strong> Your post was not updated. Please try again later.
+      </div>
     </div>
 
       <div v-else>
@@ -46,9 +54,11 @@ export default {
           content: document.getElementById('content').value
         }, function(error){
           if(error){
-            console.log('the write failed')
+            let successDiv = document.getElementById('failedMes')
+             return successDiv.classList.remove("invisible")
           }else{
-            console.log('the write succeeded')
+            let successDiv = document.getElementById('successMes')
+             return successDiv.classList.remove("invisible")
           }
         })
         return this.posted = !this.posted

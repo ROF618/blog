@@ -54,11 +54,11 @@ export default {
           content: document.getElementById('content').value
         }, function(error){
           if(error){
-            let successDiv = document.getElementById('failedMes')
-             return successDiv.classList.remove("invisible")
+            let successSArt = document.getElementById('failedMes')
+             return successSArt.classList.remove("invisible")
           }else{
-            let successDiv = document.getElementById('successMes')
-             return successDiv.classList.remove("invisible")
+            let successSArt = document.getElementById('successMes')
+             return successSArt.classList.remove("invisible")
           }
         })
         return this.posted = !this.posted

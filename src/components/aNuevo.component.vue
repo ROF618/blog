@@ -66,11 +66,18 @@ export default {
       post: function(){
 
         this.$http.post('https://workylabtecnico.firebaseio.com/posts.json', this.blog).then(function(data){
-          console.log(data);
           this.blog.title = ""
           this.blog.content = ""
           document.getElementById('newAForm').reset();
+
+          if(data.status > 300){
+            console.log('there was an error')
+          }else{
+            console.log('There was no error')
+          }
         })
+
+
 
 
       }

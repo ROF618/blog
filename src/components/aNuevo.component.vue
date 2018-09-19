@@ -20,6 +20,14 @@
     <div class="row">
       <span class="cStyle">{{blog.content}}</span>
     </div>
+    <div class="alert alert-success alert-dismissible invisible" id="successMes">
+      <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <strong>Success!</strong> Your post has been updated.
+    </div>
+    <div class="alert alert-danger alert-dismissible invisible" id="failedMes">
+      <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <strong>OOPS!</strong> Your post was not updated. Please try again later.
+    </div>
   </div>
 
 </template>
@@ -71,9 +79,11 @@ export default {
           document.getElementById('newAForm').reset();
 
           if(data.status > 300){
-            console.log('there was an error')
+            let successSArt = document.getElementById('failedMes')
+             return successSArt.classList.remove("invisible")
           }else{
-            console.log('There was no error')
+            let successSArt = document.getElementById('successMes')
+             return successSArt.classList.remove("invisible")
           }
         })
 

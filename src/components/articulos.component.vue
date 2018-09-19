@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <ul >
     <!--add on click event to update the position of the article array, do this on the home component -->
-    <li v-for="value in articleList" v-bind:key="value.id"><router-link :to="'/singleArt/' + value.id">{{ value.title }}</router-link></li>
+    <li v-for="value in articleList" v-bind:key="value.id" style="display: block;"><router-link :to="'/singleArt/' + value.id" class="artList">{{ value.title }}</router-link></li>
 
   </ul>
 
@@ -19,6 +19,7 @@
   li{
     text-align: left;
   }
+
 </style>
 
 <script>

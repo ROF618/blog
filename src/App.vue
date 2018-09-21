@@ -9,7 +9,7 @@
 
     <div class="row">
       <div class="col-lg-9">
-        <router-view v-bind:articleList="articleList, prueba" :key="$route.path" ref="router"></router-view>
+        <router-view v-bind:articleList="articleList" :key="$route.path" ref="router"></router-view>
       </div>
       <div class="col-lg-3">
         <Articulos v-bind:articleList="articleList" />
@@ -48,19 +48,15 @@ export default {
     headerApp
   }, data(){
     return {
-      artNuevo: false,
       //the singleArt component does not register for some reason; find out why
-      prueba: 0,
       articleList: []
     }
   },
+//make a Watch method to monitor a property; watch method will reload the function that runs on the created hook
 
-  methods: {
-    artNuevoFN: function(){
-      return this.artNuevo = !this.artNuevo
-    }
-  },
+
   created(){
+    //pulls data from firebase and attaches it to articleList property
     this.$http.get('https://workylabtecnico.firebaseio.com/posts.json').then(function(data){
       return data.json()
     }).then(function(data){

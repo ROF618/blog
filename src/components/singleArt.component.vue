@@ -64,6 +64,11 @@ export default {
         return this.posted = !this.posted
       }
   },
+  watch: {
+    posted: function(){
+              console.log(this.articleList)
+            }
+  },
   created(){
     this.$http.get('https://workylabtecnico.firebaseio.com/posts/' + this.id +'.json').then(function(response){
       return response.json()

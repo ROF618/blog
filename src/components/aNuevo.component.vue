@@ -77,7 +77,7 @@ export default {
           this.blog.title = ""
           this.blog.content = ""
           document.getElementById('newAForm').reset();
-
+          this.$emit('updateBlog')
           if(data.status > 300){
             let successSArt = document.getElementById('failedMes')
              return successSArt.classList.remove("invisible")

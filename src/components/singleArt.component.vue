@@ -37,6 +37,7 @@
 <script>
 import firebase from 'firebase'
 export default {
+  props: ['articleList', 'reset'],
   data(){
     return {
       id: this.$route.params.id,
@@ -51,7 +52,8 @@ export default {
       updateFn: function(){
         firebase.database().ref('posts/' + this.id).set({
           title: document.getElementById('title').value,
-          content: document.getElementById('content').value
+          content: document.getElementById('content').value,
+
         }, function(error){
           if(error){
             let successSArt = document.getElementById('failedMes')
@@ -61,12 +63,13 @@ export default {
              return successSArt.classList.remove("invisible")
           }
         })
+        this.$emit('updateBlog')
         return this.posted = !this.posted
       }
   },
   watch: {
     posted: function(){
-              console.log(this.articleList)
+              console.log('gotem')
             }
   },
   created(){
@@ -76,7 +79,7 @@ export default {
       return this.blog = data
 
     })
-  },
-  props: ['articleList']
+  }
+
 }
 </script>

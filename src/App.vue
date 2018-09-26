@@ -9,10 +9,10 @@
 
     <div class="row">
       <div class="col-lg-9">
-        <router-view v-bind:articleList="articleList" :key="$route.path" ref="router"></router-view>
+        <router-view v-bind:articleList="articleList, reset" ref="router" :key="$route.path"  v-on:updateBlog="updateArt()"></router-view>
       </div>
       <div class="col-lg-3">
-        <Articulos v-bind:articleList="articleList" />
+        <Articulos v-bind:articleList="articleList" v-on:updateBlog="updateArt()"/>
       </div>
     </div>
 
@@ -49,11 +49,26 @@ export default {
   }, data(){
     return {
       //the singleArt component does not register for some reason; find out why
-      articleList: []
+      articleList: [],
+      reset: 0
     }
   },
 //make a Watch method to monitor a property; watch method will reload the function that runs on the created hook
+  methods: {
+    updateArt: function(){
+      this.$http.get('https://workylabtecnico.firebaseio.com/posts.json').then(function(data){
+        return data.json()
+      }).then(function(data){
+        let blogsArray = []
+        for(let key in data){
+          data[key].id = key
+          blogsArray.push(data[key])
+        }
+        this.articleList = blogsArray
 
+      })
+    }
+  },
 
   created(){
     //pulls data from firebase and attaches it to articleList property

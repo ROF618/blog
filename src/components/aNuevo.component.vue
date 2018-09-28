@@ -72,7 +72,6 @@ export default {
     },
     methods: {
       post: function(){
-
         this.$http.post('https://workylabtecnico.firebaseio.com/posts.json', this.blog).then(function(data){
           this.blog.title = ""
           this.blog.content = ""
@@ -86,10 +85,7 @@ export default {
              return successSArt.classList.remove("invisible")
           }
         })
-
-
-
-
+        
       }
     }
 
